@@ -120,8 +120,8 @@ const Trackattendance = () => {
                 <Link to={`/dashboard/activeemployee/${a.emp_id}`} className='w-30'>{a.emp_name}</Link>
               </td>
               <td>{a.logged_in_location}</td>
-              <td>{a.logged_in_time}</td>
-              <td>{a.logged_out_time}</td>
+              <td>{a.login_time}</td>
+              <td>{a.logout_time}</td>
               <td>{a.hours}hrs</td>
             </tr>
           ))}
