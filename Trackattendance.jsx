@@ -49,9 +49,11 @@ const Trackattendance = () => {
   };
 
   const Reduce = (event) => {
-    const searchText = event.target.value.toLowerCase();
-    setRecords(trackattendance.filter(f =>f.logged_in_time.toLowerCase().includes(searchText) ||f.logged_out_time.toLowerCase().includes(searchText)
-    ));
+    setRecords(trackattendance.filter(f => f.logged_in_time.toLowerCase().includes(event.target.value)));
+    setRecords(trackattendance.filter(f => f.logged_out_time.toLowerCase().includes(event.target.value)));
+    // const searchText = event.target.value.toLowerCase();
+    // setRecords(trackattendance.filter(f =>f.logged_in_time.toLowerCase().includes(searchText) ||f.logged_out_time.toLowerCase().includes(searchText)
+    // ));
   };
 
   return (
@@ -95,11 +97,11 @@ const Trackattendance = () => {
         </div>
         <div style={{ marginTop: -63, marginBottom: 6, marginLeft: 370 }}>
           <label className='text-white'><b>Start date:</b></label>
-          <input type="datetimestamp" className="form-control" style={{ width: 230 }} onChange={Reduce} placeholder='search login time' />
+          <input type="date" className="form-control" style={{ width: 230 }} onChange={Reduce} placeholder='search login time' />
         </div>
         <div style={{ marginTop: -66, marginBottom: 6, marginLeft: 695 }}>
           <label className='text-white'><b>End date:</b></label>
-          <input type="datetimestamp" className="form-control" style={{ width: 230 }} onChange={Reduce} placeholder='search logout time' />
+          <input type="date" className="form-control" style={{ width: 230 }} onChange={Reduce} placeholder='search logout time' />
         </div>
         <div className='mt-3' style={{ marginLeft: 50 }}>
           <h3 className='text-white'>List of Attendance</h3>
@@ -120,8 +122,8 @@ const Trackattendance = () => {
                 <Link to={`/dashboard/activeemployee/${a.emp_id}`} className='w-30'>{a.emp_name}</Link>
               </td>
               <td>{a.logged_in_location}</td>
-              <td>{a.logged_in_time}</td>
-              <td>{a.logged_out_time}</td>
+              <td>{a.login_time}</td>
+              <td>{a.logout_time}</td>
               <td>{a.hours}hrs</td>
             </tr>
           ))}
